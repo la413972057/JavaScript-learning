@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据双向绑定</title>
+</head>
+<body>
+    <div id="app">
+        <p>
+            {{ message}}
+        </p>
+        <input type="text" v-model="message"/>
+    </div>
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        var newData = {
+            message: 'illuSioN4ng'
+        },
+                newVue = new Vue({
+                    el: '#app',
+                    data: newData
+                });
+        /**
+         *  Vue实例的data属性指向newData，它是一个引用类型，改变了newData对象的属性，同时也会影响Vue实例的data属性。
+         **/
+    </script>
+</body>
+</html>

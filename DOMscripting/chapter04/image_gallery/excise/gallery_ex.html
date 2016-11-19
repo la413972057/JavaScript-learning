@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Image Gallery</title>
+	<script type="text/javascript" src="./showPic.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css.css">
+	<!-- <link rel="stylesheet" href="css.css" type="text/css" media="screen" /> -->
+</head>
+<body>
+	<div>
+		<h1>Snapshots</h1>
+		<div class="nav">
+			<ul><!-- 如果不加return false;会跳转到新页面查看图片 -->
+				<li><a href="./images/fireworks.jpg" title="A firework display" onclick="showPic(this);return false;">Fireworks</a>
+				</li>
+				<li><a href="./images/coffee.jpg" title="A cup of black coffee" onclick="showPic(this);return false;">Coffee</a></li>
+				<li><a href="./images/rose.jpg" title="A red,red rose" onclick="showPic(this);return false;">Rose</a></li>
+				<li><a href="./images/bigben.jpg" title="The famous clock" onclick="showPic(this);return false;">Big Ben</a></li>
+			</ul>
+		</div>
+	
+	<div class="clr"></div>
+	<img id="placeholder" src="./images/placeholder.gif" alt="my image gallery" />
+	
+	<div class="dis"><p id="description">Choose an image</p></div>
+</div>
+	
+</body>
+</html>
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Image Gallery</title>
+	<script type="text/javascript" src="./showPic.js"></script>
+</head>
+<body>
+  <h1>Snapshots</h1>
+  <ul>
+    <li>
+      <a href="images/fireworks.jpg" title="A fireworks display" onclick="showPic(this); return false;">Fireworks</a>
+    </li>
+    <li>
+      <a href="images/coffee.jpg" title="A cup of black coffee" onclick="showPic(this); return false;">Coffee</a>
+    </li>
+    <li>
+      <a href="images/rose.jpg" title="A red, red rose" onclick="showPic(this); return false;">Rose</a>
+    </li>
+    <li>
+      <a href="images/bigben.jpg" title="The famous clock" onclick="showPic(this); return false;">Big Ben</a>
+    </li>
+  </ul>
+  <img id="placeholder" src="images/placeholder.gif" alt="my image gallery" />
+</body>
+</html> -->

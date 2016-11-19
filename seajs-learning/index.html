@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Getting start with Sea.js</title>
+    <!-- 引入seajs-->
+    <script src="./seajs-3.0.0/dist/sea.js"></script>
+    <script>
+//        seajs.use(['./greet'], function(Greet){
+//            Greet.helloJavascript();
+//        });
+    </script>
+</head>
+<body>
+<div class="aaa"></div>
+
+<script>
+    seajs.config({
+        base: './',
+        alias: {
+            'jquery': 'jquery-1.11.3/jquery.js',
+            'a': 'a.js'
+        },
+        preload: [
+            "jquery"
+        ]
+    });
+
+//        seajs.use('jquery', function(require, exports, module){
+//            console.log($);
+//            $('.aaa').html('aaaa');
+//        });
+    seajs.use('a');
+//    seajs.use('jquery');
+//    $('.aaa').html('aaaa');
+
+
+//    seajs.use('a');
+</script>
+</body>
+</html>

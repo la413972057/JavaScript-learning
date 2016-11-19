@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第一个VUE hello world 代码</title>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        var newData = {
+            message: 'Hello world!'
+        };
+
+        var newVue = new Vue({
+            el: '#app',
+            data: newData
+        });
+/**
+    使用vue的过程就是定义MVVM各个组成部分的过程；
+    1、定义View；
+    2、定义Model；
+    3、创建一个Vue或者VueModel，用于连接view and model。
+    在创建Vue实例的时候，需要传入一个选项对象，选项对象可以包含数据、挂载元素、方法等等。
+    在上面实例中，选项对象中的el属性指向View，`el: '#app'`，表示该Vue挂载到id为app的dom上；data属性指向Model，`data: newData`，表示Model是newData对象。
+    Vue.js有多种数据绑定的语法，最基础的形式是文本插值，使用一对大括号语法，在运行时{{ message }}会被数据对象的message属性替换，所以页面上会输出"Hello World!"。
+ **/
+    </script>
+</body>
+</html>
