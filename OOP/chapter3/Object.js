@@ -139,7 +139,7 @@ var person5 = {
         console.log('setting name to %s', value);
         this._name = value;
     }
-}
+};
 console.log(person5.name);  //reading name...
                             //GodYaoyaoyao
 person5.name = 'GodYao';    //setting name to GodYao
