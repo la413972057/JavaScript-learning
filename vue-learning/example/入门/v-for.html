@@ -18,7 +18,8 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="person in people">
+        <tr v-for="(person, index) in people">
+            <td>{{ index  }}</td>
             <td>{{ person.name  }}</td>
             <td>{{ person.age  }}</td>
             <td>{{ person.sex  }}</td>

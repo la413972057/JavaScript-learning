@@ -10,6 +10,8 @@
     <p>Original message: {{ message }}</p>
     <p>Computed reversed message: {{ reversedMessage }}</p>
     <p>Reversed message: {{ reverseMessage() }}</p>
+    <!--<p>computed now time: {{ random }}</p>-->
+    <!--<p>reversed now time: {{ random() }}</p>-->
 </div>
 
 <script src="../node_modules/vue/dist/vue.js"></script>
@@ -21,17 +23,26 @@
         },
         computed: {
             // a computed getter
+//            random: function () {
+//                return Math.random();
+//            },
             reversedMessage: function () {
                 // `this` points to the vm instance
                 return this.message.split('').reverse().join('')
             }
         },
         methods: {
+//            random: function () {
+//                return Math.random();
+//            },
             reverseMessage: function () {
                 return this.message.split('').reverse().join('')
             }
         }
     });
+    /**
+     * 不经过计算属性，我们可以在 method 中定义一个相同的函数来替代它。对于最终的结果，两种方式确实是相同的。然而，不同的是计算属性是基于它的依赖缓存。计算属性只有在它的相关依赖发生改变时才会重新取值。这就意味着只要 message 没有发生改变，多次访问 reversedMessage 计算属性会立即返回之前的计算结果，而不必再次执行函数。
+     */
 </script>
 </body>
 </html>
