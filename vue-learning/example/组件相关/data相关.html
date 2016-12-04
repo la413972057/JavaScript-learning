@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- data必须是函数 -->
+
+<div id="example-2">
+    <simple-counter></simple-counter>
+    <simple-counter></simple-counter>
+    <simple-counter></simple-counter>
+</div>
+
+<div id="example-3">
+    <simple-counter></simple-counter>
+    <simple-counter></simple-counter>
+    <simple-counter></simple-counter>
+</div>
+
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    var data = { counter: 0 };
+    Vue.component('simple-counter', {
+        template: '<button v-on:click="counter += 1">{{ counter }}</button>',
+        // data 是一个函数，因此 Vue 不会警告，
+        // 但是我们为每一个组件返回了同一个对象引用
+        data: function () {
+            return data
+        }
+    });
+    new Vue({
+        el: '#example-2'
+    });
+
+    Vue.component('simple-counter', {
+        template: '<button v-on:click="counter1 += 1">{{ counter1 }}</button>',
+        // data 是一个函数，因此 Vue 不会警告，
+        // 但是我们为每一个组件返回了同一个对象引用
+        data: function () {
+            return {
+                counter1: 0
+            }
+        }
+    });
+    new Vue({
+        el: '#example-3'
+    });
+</script>
+</body>
+</html>
