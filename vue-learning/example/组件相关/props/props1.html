@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="test">
+    <input v-model="parentMsg"><br>
+    {{ parentMsg }}
+    <br>
+    <div is="child" :my-message="parentMsg"></div>
+</div>
+
+<script src="../../node_modules/vue/dist/vue.js"></script>
+<script>
+    Vue.component('child', {
+        // camelCase in JavaScript
+        props: ['myMessage'],
+        template: '<span>{{ myMessage }}</span>'
+    });
+
+    new Vue({
+        el: '#test',
+        data: {
+            parentMsg: 'test'
+        }
+    });
+
+</script>
+</body>
+</html>
