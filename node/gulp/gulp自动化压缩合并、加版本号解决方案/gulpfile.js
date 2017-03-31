@@ -22,7 +22,9 @@ gulp.task('default',['del'], function () {
     gulp.src('dev/index.html')
         .pipe(useref())                         // 解析html中的构建块
         .pipe(jsFilter)                         // 过滤所有js
-        .pipe(uglify())                         // 压缩js
+        .pipe(uglify({
+            preserveComments: 'all' //保留所有注释
+        }))                         // 压缩js
         .pipe(jsFilter.restore)
         .pipe(cssFilter)                        // 过滤所有css
         .pipe(csso())                           // 压缩优化css
