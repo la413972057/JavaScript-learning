@@ -8,8 +8,8 @@
 
 <div id="counter-event-example">
     <p>{{ total }}</p>
-    <button-counter v-on:increment1="incrementTotal"></button-counter>
-    <button-counter v-on:increment1="incrementTotal"></button-counter>
+    <button-counter @increment-total="incrementTotal"></button-counter>
+    <button-counter @increment-total="incrementTotal"></button-counter>
     <!-- 监听事件increment1 触发incrementTotal -->
 </div>
 
@@ -17,7 +17,8 @@
 <script src="../../node_modules/vue/dist/vue.js"></script>
 <script>
     Vue.component('button-counter', {
-        template: '<button v-on:click="increment">{{ counter }}</button>',
+//        template: '<button v-on:click="increment">{{ counter }}</button>',
+        template: '<button @click = "increment">{{ counter }}</button>',
         data: function () {
             return {
                 counter: 0
@@ -26,7 +27,7 @@
         methods: {
             increment: function () {
                 this.counter += 1;
-                this.$emit('increment1');//触发事件increment1
+                this.$emit('increment-total');//触发事件 事件名中不能有大写
             }
         }
     });
