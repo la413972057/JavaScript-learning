@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="test">
+    <currency-input v-model="price"></currency-input>
+</div>
+
+
+<script src="../../node_modules/vue/dist/vue.js"></script>
+<script>
+    var i = 0;
+    Vue.component('currency-input', {
+        template: '\
+            <span>\
+                $\
+                <input\
+                 ref="input1"\
+                 v-bind:value="value"\
+                 v-on:input="updateValue($event.target.value)"\
+                 >\
+            </span>\
+        ',
+        props:['value'],
+        methods: {
+            updateValue: function (value) {
+                console.log(i++);
+                value = value.trim();
+                var formattedValue = value;
+//                console.log(value.indexOf('.'));
+                if (value.indexOf('.') !== -1) {
+                    formattedValue = value.slice(0, value.indexOf('.') + 3);
+                }
+                if (formattedValue !== value) {
+                    this.$refs.input1.value = formattedValue;
+//                    console.log(this.$refs.input1);
+                }
+                this.$emit('input', Number(formattedValue));
+            }
+        }
+    });
+
+    new Vue({
+        el: '#test',
+        data: {
+            price: 0
+        }
+    })
+</script>
+</body>
+</html>
