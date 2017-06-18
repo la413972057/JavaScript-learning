@@ -1,0 +1,21 @@
+{
+  "name": "vue-demo",
+  "homepage": "https://github.com/la413972057/JavaScript-learning",
+  "authors": [
+    "illuSioN4ng <413972057@qq.com>"
+  ],
+  "description": "test",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
