@@ -1,0 +1,360 @@
+{
+  // Details: https://github.com/victorporof/Sublime-JSHint#using-your-own-jshintrc-options
+  // Example: https://github.com/jshint/jshint/blob/master/examples/.jshintrc
+  // Documentation: http://www.jshint.com/docs/
+  // Error Explanations: http://jslinterrors.com/
+
+  //强制性配置---------------------------------------------------------------------------------------
+  //-------------------------------------------------------------------------------------------------
+
+  //是否为ES5的严格模式
+  //(reference: http://www.infoq.com/cn/news/2009/12/ecmascript5)
+  //(reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode)
+  //(默认)false:不为严格模式
+  //true:严格模式 必须在文件或function第一行声明 'use strict';
+  "strict": false,
+
+  //禁止使用位操作符如^ | & 等 (例如var a = b ^ 3会报错)
+  //(默认)false:不禁止
+  //true: 禁止
+  "bitwise": true,
+
+  //是否必须使用驼峰命名法
+  //(默认)false:非必须
+  //true:必须
+  "camelcase": true,
+
+  //强制使用===和!===这样的符号，禁止使用==和!=这样的符号
+  //(默认)false:不强制
+  //true:强制
+  "eqeqeq": false,
+
+  //代码块必须在{}包围中(例如：if (true) return;会报错，必须用if (true) {return;})
+  //(默认)false:非必须
+  //true:必须
+  "curly": true,
+
+  //for in 循环里强制使用hasOwnProperty
+  //(默认)false:不强制
+  //true:强制
+  //"forin": true,
+
+  //函数表达式需要用括号包含起来
+  //例如:
+  //var result = function () {return {};} (); ===>不强制
+  //var result = (function () {return {};} ()); ===>强制
+  //var result = (function () {return {};} )(); ===>强制
+  //(默认)false:不强制
+  //true:强制
+  "immed": true,
+
+  //使用字符串变量时用单引号还是双引号
+  //(默认)false:单双引号无所谓
+  //true:单双引号都可以，但只能用一种，不能既有单引号又有双引号;
+  //"sigle":只能用单引号
+  //"double":只能用双引号
+  "quotmark": false,
+
+  //强制类名的第一个字母为大写
+  //false:不强制
+  //(默认)true:强制
+  //"newcap": true,
+
+  //是否允许空的{}代码块 例如设为true时，if (true) {}会报错
+  //(默认)false:允许
+  //true:不允许，会报错
+  "noempty": true,
+
+  //是否禁止使用arguments.caller和arguments.callee
+  //注意：在ES5中这个是禁止的，故设置了ES5模式后，无论这个参数怎么设置，都是不允许callee的
+  //false:不禁止
+  //true:禁止
+  "noarg": true,
+
+  //new Class();必须赋值给某个变量
+  //例如：new Class()错；var a = new Class()对
+  //注意：new Class().method()是允许的
+  //(默认)false:不强制
+  //true:强制
+  "nonew": true,
+
+  //禁止使用--和++操作符(表示不理解为何这也要禁止)
+  //(默认)false:不禁止
+  //true:禁止
+  //"plusplus": false,
+
+  //代码行后面有多余的空格报错
+  //(默认)false:不报错
+  //true:报错
+  "trailing": true,
+
+  //使用了未定义的变量
+  //(默认)false:不报错
+  //true: 报错
+  "undef": true,
+
+  //声明了变量但没有使用到这个变量
+  //(默认)false:不报错
+  //true:报错
+  "unused": true,
+
+  //函数需要先声明再使用
+  //(默认)false:不强制先声明
+  //true:强制需要先声明
+  "latedef": true,
+
+  //是否为标准语法，是否禁止一些不标注的用法
+  //ES3开始反对一些用法，如escape/unescape等，此参数用于设置是否禁止使用escape等
+  //(默认)false:禁止使用
+  //true:不禁止
+  //"nonstandard": false,
+
+  //是否允许扩展javascript内置对象的方法，有些时候这是不被推荐的
+  //(默认)false:允许
+  //true:禁止扩展
+  //"freeze": true,
+
+  //TODO
+  //貌似这个参数已经不推荐设置了
+  //"nonbsp": true,
+
+  //设置函数的最大参数数量（虽然参数太多是不推荐的，但是不应该强制）
+  //"maxparams": 100,
+
+  //程序段的嵌套最大深度
+  //例如：if (true) {while (true) {if (true) {doSth();}}}的嵌套深度是3
+  //"maxdepth": 10,
+
+  //函数内变量声明的最大数量 如：function test() {var a, b, c, d;}是4
+  //注意：function内声明一个function也算一个 如：function a() {function b() {}}是1
+  //"maxstatements": 100,
+
+  //代码行的最大长度（字符数量）
+  //"maxlen": 80,
+
+  //代码复杂度
+  //"maxcomplexity": 10,
+
+  //缩进的长度
+  "indent": 4,
+
+  //运行环境配置--------------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------------------------
+
+  //是不是为浏览器端javascript,作用是遇到window document navigator这些变量不需要声明
+  //注意：alert console这些变量还是会报错
+  //(默认)false:遇到window等未声明，则报错
+  //true:不报错
+  "browser": true,
+
+  //是否为nodejs环境,作用之一是console变量未声明时不报错
+  //(默认)false:使用未声明的console时报错
+  //true:使用未声明的console时不报错
+  "node": true,
+
+  //是否使用了jQuery基础库
+  //(默认)false: 未使用
+  //true:使用了未声明的jQuery变量时不报错
+  "jquery": true,
+
+  //自定义配置----------------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------------------------
+
+  //自定义一些全局变量，使之在未声明时不报错
+  "globals": {
+    "$": false,
+    "jQuery": false,
+    "alert": false,
+    "console": false,
+    "require": false,
+    "angular": false,
+    "exports": false,
+    "process":false,
+    "__dirname":false,
+    "define": false
+  },
+
+  //与globals的的作用大同小异
+  "predef": [
+    "module",
+    "require",
+    "__dirname",
+    "process",
+    "console",
+    "it",
+    "describe",
+    "before",
+    "after",
+    "should"
+  ],
+
+  //非强制性配置------------------------------------------------------------------------------------------
+  //------------------------------------------------------------------------------------------------------
+
+  //允许全局的"use strict"声明
+  //建议：
+  //在编辑器的验证中可以设为true
+  //但是在验证整个项目文件时设为允许会引起一些第三方插件出问题，所以建议设为false(默认)
+  //(默认)false:不允许
+  //true: 允许
+  "globalstrict": true,
+
+  //容忍句尾不加分号
+  //(默认)false:不容忍
+  //true:容忍
+  //"asi": false,
+
+  //在一些需要条件表达式的地方可否使用赋值语句
+  //例如：if (a = b) {doSth();}
+  //例如：for (var i = 0, person; person = people[i]; i++) {}
+  //(默认)false:不允许
+  //true:允许
+  "boss": true,
+
+  //允许使用v == null，可结合"eqeqeq"理解
+  //(默认)false:不允许
+  //true:允许
+  "eqnull": true,
+
+  //允许使用eval
+  //(默认)false:不允许
+  //true:允许
+  //"evil": false,
+
+  //是否允许一段表达式作为一段单独的程序
+  //这个参数比较有趣
+  //例如有这样的程序：if (condition) {doSth();}有人喜欢这样写：condition && doSth();
+  //然而后者是一段表达式，在js引擎中这不属于语法错误，但是大多数情况下，很多人是不推荐这种用法的
+  //个人比较倾向后者用法，故设为true
+  //(默认)false:不允许
+  //true:允许
+  "expr": true,
+
+  //允许在控制结构里声明变量而在外面使用它
+  //例如：if (condition) {var test = 'test';} alert(test);是不报语法错误的，但是这样是极不好的在很多浏览器中甚至不兼容
+  //注:上面的类似例子经常在前端职位笔试题中出现
+  //(默认)false:不允许
+  //true:允许
+  //"funcscope": true,
+
+  //兼容mozilla特定语法
+  //mozilla扩展并重写了一些ES6的语法,例如for each等
+  //(默认)false:不支持
+  //true:支持
+  //"moz": false,
+
+  //允许使用__proto__(只有mozilla中有)
+  //(默认)false:不允许
+  //true:允许
+  //"proto": false,
+
+  //__iterator__属性  目前还没有浏览器支持
+  //(默认)false:不支持
+  //"iterator": false,
+
+  //单行语句块里的分号可以省略
+  //例如：if (true) { dosth() } ===> if (true) { dosth(); }
+  //(默认)false:不可省略
+  //true:可省略
+  // "lastsemic": true,
+
+  //不安全的断句
+  //例如：var a = b + c;有人会把+ c放到第二行,这就属于不安全断句,应该把+留在第一行最后
+  //(默认)false:不允许
+  //true:允许
+  //"laxbreak": false,
+
+  //逗号在前面的代码风格
+  //例如：var obj = { a: 'a', b: 'b' };有人喜欢把a后面的逗号放到第二行的开始
+  //这个设置因人而异，这种编程风格也没什么错，个人喜好禁止了这种风格，一般情况下是true
+  //(默认)false:不允许
+  //true:允许
+  //"laxcomma": false,
+
+  //允许在循环中声明函数  这种方式在很多浏览器中都不是语法错误，但是极不推荐的风格极易引起bug
+  //例如：
+  //var nums = [];
+  //for (var l = 0; l < 10; l++) {
+  //    nums[l] = function (j) {
+  //        return i + j;
+  //    };
+  //}
+  //(默认)false:不允许
+  //true:允许
+  //"loopfunc": false,
+
+  //是否允许多行形式的字符串  即允许用'\'来划分多行字符串
+  //这种用法有点危险，假如'\'后多了一个空格的话会出现意外情况，故推荐设为false或默认
+  //(默认)false:不允许
+  //true:允许
+  //"multistr": true,
+
+  //这个不太好控制,个人倾向于允许
+  //允许链接的目标为javascript执行
+  //例如：<a href="javasctip:alert(111);"></a>
+  //(默认)false:不允许
+  //true:允许
+  "scripturl": true,
+
+  //允许重复定义同一个变量 如：var x = 9; var x = 10;是错误的
+  //(默认)false:不允许
+  //true:允许
+  //"shadow": false,
+
+  //当可以用obj.p的情况下使用obj['p']这样的方式
+  //注：只有obj['p x q']这样的情况才推荐使用[]
+  //(默认)false:不允许obj['p']
+  //true:允许
+  //"sub": false,
+
+  //允许使用var c = new function () {};和var c = new Class;这样的写法(很多js引擎都支持)
+  //(默认)false：不允许
+  //true:允许
+  //"supernew": false,
+
+  //允许非类里面使用this
+  //(默认)false:不允许
+  //true:允许
+  //"validthis": false,
+
+  //TODO
+  //混用tab和空格时是否报错(为了防止tab与空格混用，建议设为false或默认不设置)
+  //(默认)false:不可混用
+  //true:可混用
+  "smarttabs": false,
+
+  //允许ecmascript5语法，例如：getters/setters
+  //TODO个人不明白这个和strict有什么区别，既然有了strict选项还要这个干什么?
+  //(默认)false:不允许
+  //true
+  //"es5": true,
+
+  //允许ecmascript6语法
+  //(默认)false:不允许
+  //true
+  //"esnext": true,
+
+  //允许出现debugger语句
+  //(默认)false:不允许
+  //true:允许
+  //"debug": true,
+
+  //一些历史遗留的配置-------------------------------------------------------------------------------------
+  //-------------------------------------------------------------------------------------------------------
+
+  //一个function内只允许一个var
+  //注：jshint已不推荐这种用法
+  //(默认)false:不强制
+  //true:强制
+  //"onevar": true,
+
+
+  //严格类型的空白规范（道格拉斯规范）
+  //例如:
+  //错误：if(true){}  正确：if (true) {}
+  //错误：while(true){}  正确：while (true) {}
+  //错误：while ( true ) {}  正确：while (true) {}
+  //(默认)false:非严格
+  //true:严格
+  "white": true
+}
