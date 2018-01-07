@@ -1,0 +1,13 @@
+/*
+* @Author: illuSioN4ng
+* @Date:   2017-11-07 13:02:48
+* @Last Modified by:   illuSioN4ng
+* @Last Modified time: 2017-11-07 14:56:29
+*/
+import React from 'react';
+import {render} from 'react-dom';
+import Greeter from './greeter';
+
+import './main.css';//使用require导入css文件
+
+render(<Greeter />, document.getElementById('root'));

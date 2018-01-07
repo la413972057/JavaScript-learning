@@ -1,0 +1,12 @@
+{
+  "name": "node-API",
+  "main": "index.html",
+  "window": {
+    "title": "nw-demo", // 应用标题
+    "width": 840, // 应用初始化宽度
+    "height": 600, // 应用初始化高度
+    "toolbar": true, // 是否开启调试工具
+    "resizable": false, // 应用是否可以调整高度以及宽度
+    "icon": "images/icon.png" // 应用图标路径（相对路径）
+  }
+}
